@@ -26,6 +26,19 @@
             --rgb-border: rgba(255, 255, 255, 0.1);
         }
 
+        /* تم سفید استخوانی بهبود یافته */
+        .bone-theme {
+            --dark-green: #f0e8dc;
+            --medium-green: #e8e0d0;
+            --light-green: #e0d8c8;
+            --accent-green: #2a6e3a;
+            --gold: #4a6fa5;
+            --text-light: #2c3e50;
+            --text-gray: #5d6d7e;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --rgb-border: rgba(74, 111, 165, 0.2);
+        }
+
         body {
             background-color: var(--dark-green);
             background-image: 
@@ -34,12 +47,103 @@
             color: var(--text-light);
             min-height: 100vh;
             overflow-x: hidden;
+            transition: background-color 0.8s ease, color 0.8s ease;
+        }
+
+        .bone-theme body {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(74, 111, 165, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(42, 110, 58, 0.05) 0%, transparent 50%);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .theme-toggle-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, var(--medium-green), var(--light-green));
+            border: 2px solid var(--gold);
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .theme-toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .theme-toggle-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .theme-toggle-btn .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle-btn .moon-icon {
+            display: none;
+        }
+
+        .bone-theme .theme-toggle-btn .sun-icon {
+            display: none;
+        }
+
+        .bone-theme .theme-toggle-btn .moon-icon {
+            display: block;
+        }
+
+        .theme-toggle-btn .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
 
         /* Header Styles */
@@ -53,6 +157,12 @@
             z-index: 100;
             padding: 15px 0;
             border-radius: 0 0 20px 20px;
+            transition: background 0.8s ease, border-color 0.8s ease;
+        }
+
+        .bone-theme header {
+            background: linear-gradient(to bottom, rgba(240, 232, 220, 0.95), rgba(224, 216, 200, 0.85));
+            border-bottom: 1px solid rgba(74, 111, 165, 0.3);
         }
 
         .header-content {
@@ -75,6 +185,25 @@
             object-fit: cover;
             border: 2px solid var(--gold);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: border-color 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .bone-theme .school-logo {
+            box-shadow: 0 0 15px rgba(74, 111, 165, 0.3);
+        }
+
+        .sampad-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: border-color 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .bone-theme .sampad-logo {
+            box-shadow: 0 0 15px rgba(74, 111, 165, 0.3);
         }
 
         .school-name {
@@ -83,8 +212,17 @@
             background: linear-gradient(to right, var(--gold), #ffed4e);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            color: #f0f8f2;
+            text-shadow: 0 2px 4px rgb(0 0 0 / 0%);
+            transition: background 0.8s ease;
+            padding: 10px 20px;
+            border-radius: 15px;
+            background-color: rgba(10, 38, 16, 0.2);
+        }
+
+        .bone-theme .school-name {
+            background: linear-gradient(to right, var(--gold), #6b8cbc);
+            background-color: rgba(240, 232, 220, 0.3);
         }
 
         /* Navigation Styles */
@@ -146,7 +284,7 @@
             border: 1px solid var(--accent-green);
         }
 
-        /* RGB Border Animation */
+        /* RGB Border Animation - بدون تغییر */
         .rgb-border {
             position: absolute;
             top: -2px;
@@ -191,6 +329,12 @@
             animation: fadeIn 0.5s ease;
             position: relative;
             overflow: hidden;
+            transition: background 0.8s ease, border-color 0.8s ease;
+        }
+
+        .bone-theme .content-panel {
+            background: linear-gradient(145deg, rgba(240, 232, 220, 0.9), rgba(224, 216, 200, 0.9));
+            border: 1px solid rgba(74, 111, 165, 0.3);
         }
 
         .content-panel::before {
@@ -202,6 +346,11 @@
             height: 200%;
             background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
             z-index: 0;
+            transition: background 0.8s ease;
+        }
+
+        .bone-theme .content-panel::before {
+            background: radial-gradient(circle, rgba(74, 111, 165, 0.05) 0%, transparent 70%);
         }
 
         .content-panel.active {
@@ -221,6 +370,11 @@
             border-bottom: 2px solid rgba(255, 215, 0, 0.3);
             position: relative;
             z-index: 1;
+            transition: color 0.8s ease, border-color 0.8s ease;
+        }
+
+        .bone-theme .panel-title {
+            border-bottom: 2px solid rgba(74, 111, 165, 0.3);
         }
 
         /* Exam Schedule Styles */
@@ -239,6 +393,10 @@
             border-left: 5px solid var(--accent-green);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+        }
+
+        .bone-theme .exam-item {
+            background: rgba(240, 232, 220, 0.7);
         }
 
         .exam-item:hover {
@@ -281,10 +439,18 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .bone-theme .product-card {
+            background: rgba(240, 232, 220, 0.7);
+        }
+
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: rgba(15, 58, 26, 0.8);
+        }
+
+        .bone-theme .product-card:hover {
+            background: rgba(224, 216, 200, 0.8);
         }
 
         .product-icon {
@@ -315,6 +481,10 @@
             transition: all 0.3s ease;
         }
 
+        .bone-theme .category-card {
+            background: rgba(240, 232, 220, 0.7);
+        }
+
         .category-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -328,6 +498,10 @@
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
         }
 
+        .bone-theme .category-title {
+            border-bottom: 1px solid rgba(74, 111, 165, 0.2);
+        }
+
         .teacher-list {
             list-style: none;
         }
@@ -335,6 +509,12 @@
         .teacher-item {
             padding: 10px 0;
             border-bottom: 1px dashed rgba(200, 230, 201, 0.1);
+            color: var(--text-light);
+        }
+
+        .bone-theme .teacher-item {
+            border-bottom: 1px dashed rgba(93, 109, 126, 0.1);
+            color: var(--text-light);
         }
 
         .teacher-item:last-child {
@@ -381,6 +561,10 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .bone-theme .comments-form {
+            background: rgba(240, 232, 220, 0.7);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -402,10 +586,20 @@
             transition: all 0.3s ease;
         }
 
+        .bone-theme .form-input, .bone-theme .form-textarea {
+            background: rgba(224, 216, 200, 0.8);
+            border: 1px solid rgba(74, 111, 165, 0.5);
+            color: var(--text-light);
+        }
+
         .form-input:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--gold);
             box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+
+        .bone-theme .form-input:focus, .bone-theme .form-textarea:focus {
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
         }
 
         .form-textarea {
@@ -439,6 +633,12 @@
             padding: 30px 0 20px;
             margin-top: 50px;
             border-radius: 20px 20px 0 0;
+            transition: background 0.8s ease, border-color 0.8s ease;
+        }
+
+        .bone-theme footer {
+            background: linear-gradient(to top, rgba(240, 232, 220, 0.95), rgba(224, 216, 200, 0.85));
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
         }
 
         .footer-content {
@@ -462,11 +662,20 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .bone-theme .aparat-link {
+            background: rgba(240, 232, 220, 0.8);
+            color: var(--text-light);
+        }
+
         .aparat-link:hover {
             background: rgba(15, 58, 26, 0.9);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             color: var(--gold);
+        }
+
+        .bone-theme .aparat-link:hover {
+            background: rgba(224, 216, 200, 0.9);
         }
 
         .aparat-icon {
@@ -484,6 +693,88 @@
             font-weight: 600;
         }
 
+        /* Contact Info Styles */
+        .contact-info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-details {
+            background: rgba(10, 38, 16, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bone-theme .contact-details {
+            background: rgba(240, 232, 220, 0.7);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(200, 230, 201, 0.2);
+        }
+
+        .bone-theme .contact-item {
+            border-bottom: 1px dashed rgba(93, 109, 126, 0.2);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-left: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-value {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            height: 400px;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* Home Page Styles */
         .home-content {
             text-align: center;
@@ -499,7 +790,15 @@
             background: linear-gradient(to right, var(--gold), #ffed4e);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            color: #f0f8f2;
+            padding: 15px 25px;
+            border-radius: 15px;
+            background-color: rgba(10, 38, 16, 0.2);
+        }
+
+        .bone-theme .home-title {
+            background: linear-gradient(to right, var(--gold), #6b8cbc);
+            background-color: rgba(240, 232, 220, 0.3);
         }
 
         .home-subtitle {
@@ -507,6 +806,13 @@
             color: var(--text-gray);
             margin-bottom: 40px;
             line-height: 1.6;
+            padding: 15px 25px;
+            border-radius: 15px;
+            background-color: rgba(10, 38, 16, 0.1);
+        }
+
+        .bone-theme .home-subtitle {
+            background-color: rgba(240, 232, 220, 0.2);
         }
 
         .home-features {
@@ -523,6 +829,10 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             border: 1px solid transparent;
+        }
+
+        .bone-theme .feature-card {
+            background: rgba(240, 232, 220, 0.7);
         }
 
         .feature-card:hover {
@@ -567,23 +877,53 @@
             
             .school-name {
                 font-size: 1.3rem;
+                padding: 8px 15px;
             }
             
             .home-title {
                 font-size: 2rem;
+                padding: 12px 20px;
             }
             
             .home-subtitle {
                 font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+            
+            .theme-toggle-container {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .theme-toggle-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .logo-container {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- دکمه تغییر تم -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="themeToggle">
+            <span class="pulse-ring"></span>
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
     <header>
         <div class="container header-content">
             <div class="logo-container">
                 <img src="https://static.cdn.asset.aparat.cloud/profile-photo/8735003-554009-m.jpg" alt="لوگو دبیرستان" class="school-logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAMAAACxiD++AAAAMFBMVEVHcEwpMpspMpspMpspMpspMpssNJopMpspMpspMpspM5spMpspMpstNpopMpspMpu3fYyLAAAAD3RSTlMAMlbra4sfeUDCrtfyC58JunLHAAABHUlEQVQokZ1T27LDIAgURfDO///tUTBJ23TSmbMPRmQlsqvOvWMM94giUn7kHxlZFPmWIEZEZvKpibTkiXWBTgLoxjRnQSTMT9IFeCewuwiOvxAELwJ+q6A1jMByI1A2hhI0n+mFQLRb5FBr4N0qnV10PERg17sWUCmwb4LELSMQlUIEW8wotr9J8QuJfUwxQvScNC7SZo0uJ6AOF6MbFa617uoVUC6LUGYDJ6pz7aqQeTqCnK8KzeQdkCYgAoUxAs2JxsNkn4y4zU7LpTWY4TEcQvg1rMNE605/vZdNarC8YAuh4T4cvHoBljcvjAF3N/3hpr+7ufPHffD/u1EPFTouc5DQr1utkxV394lih3t4OWPlH19n3Go+MD7zfxIeFLr9ix+HAAAAAElFTkSuQmCC
+925" alt="لوگوی سمپاد" class="sampad-logo">
                 <h1 class="school-name">دبیرستان استعدادهای درخشان محمد رسول الله (دستغیب 3)</h1>
             </div>
         </div>
@@ -619,6 +959,12 @@
                 <li class="menu-item">
                     <a href="#" class="menu-link" data-panel="environment">
                         <i class="fas fa-school"></i> فضای مدرسه و نظرات دانش آموزان
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-panel="contact">
+                        <i class="fas fa-map-marker-alt"></i> آدرس و اطلاعات تماس
                     </a>
                     <div class="rgb-border"></div>
                 </li>
@@ -829,6 +1175,74 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Contact Panel -->
+            <div class="content-panel" id="contact-panel">
+                <h2 class="panel-title">آدرس و اطلاعات تماس مدرسه</h2>
+                <div class="contact-info-container">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <div class="contact-label">شماره تماس مدرسه:</div>
+                                <div class="contact-value">۰۷۱-۳۷۲۰۹۳۹۳</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <div class="contact-label">آدرس دقیق مدرسه:</div>
+                                <div class="contact-value">
+                                    بلوار مدرس، بعد از پل غدیر، نبش خیابان محراب، جنب ایستگاه مترو جانبازان<br>
+                                    شیراز، استان فارس
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <div class="contact-label">ساعات کاری:</div>
+                                <div class="contact-value">
+                                    شنبه تا چهارشنبه: ۷:۳۰ صبح تا ۱۴:۳۰ بعدازظهر<br>
+                                    پنجشنبه‌ها: ۷:۳۰ صبح تا ۱۲:۳۰ ظهر
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="contact-text">
+                                <div class="contact-label">دسترسی:</div>
+                                <div class="contact-value">
+                                    - دسترسی آسان از طریق مترو (ایستگاه جانبازان)<br>
+                                    - پارکینگ اختصاصی در محوطه مدرسه<br>
+                                    - نزدیک به مراکز درمانی و تجاری
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13886.24853894651!2d52.542722!3d29.638898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb1f61c034f69ec!2z2KfZhNmF2LHZg9iy2YrYp9mF24zYqiDYp9mE2K_Zitix2KfYqtmIINin2YTYs9mK2K_ZitmG2Iwg2KfZhNin2LPZitmGINmE2YTYp9mK2YbYr9iMINin2YTYp9ix2K_ZitmG2Yog2KfZhNin2YbYqti32Kk!5e0!3m2!1sen!2s!4v1705620156780!5m2!1sen!2s" 
+                            class="map-iframe" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -848,9 +1262,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             const menuLinks = document.querySelectorAll('.menu-link');
             const panels = document.querySelectorAll('.content-panel');
+            const themeToggle = document.getElementById('themeToggle');
             
             // بارگذاری نظرات ذخیره شده
             loadCommentsFromStorage();
+            
+            // بارگذاری تم ذخیره شده
+            loadThemePreference();
             
             // Show home panel by default
             showPanel('home');
@@ -923,7 +1341,7 @@
             });
             
             // Add hover effects to all cards
-            const cards = document.querySelectorAll('.exam-item, .product-card, .category-card, .feature-card');
+            const cards = document.querySelectorAll('.exam-item, .product-card, .category-card, .feature-card, .contact-item');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-5px)';
@@ -1038,6 +1456,31 @@
                         }
                     }, 500);
                 }, 3000);
+            }
+            
+            // سیستم تغییر تم
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('bone-theme');
+                
+                // ذخیره انتخاب کاربر در LocalStorage
+                if (document.body.classList.contains('bone-theme')) {
+                    localStorage.setItem('siteTheme', 'bone');
+                } else {
+                    localStorage.setItem('siteTheme', 'green');
+                }
+                
+                // پالس انیمیشن
+                this.style.transform = 'rotate(360deg) scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 500);
+            });
+            
+            function loadThemePreference() {
+                const savedTheme = localStorage.getItem('siteTheme');
+                if (savedTheme === 'bone') {
+                    document.body.classList.add('bone-theme');
+                }
             }
         });
     </script>
