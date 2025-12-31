@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دبیرستان استعدادهای درخشان محمد رسول الله (دستغیب 3)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        :root {
+            --dark-green: #0a2610;
+            --medium-green: #0f3a1a;
+            --light-green: #1a4d29;
+            --accent-green: #2a6e3a;
+            --gold: #ffd700;
+            --text-light: #f0f8f2;
+            --text-gray: #c8e6c9;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --rgb-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--dark-green);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(42, 110, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, rgba(10, 38, 16, 0.95), rgba(15, 58, 26, 0.85));
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rgb-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .school-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .school-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--gold), #ffed4e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation Styles */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .menu-link {
+            display: block;
+            padding: 15px 25px;
+            background: linear-gradient(145deg, var(--medium-green), var(--light-green));
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px var(--shadow);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+
+        .menu-link:hover::before {
+            transform: translateX(100%);
+        }
+
+        .menu-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--accent-green);
+        }
+
+        /* RGB Border Animation */
+        .rgb-border {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 17px;
+            background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #00ff00, #0099ff, #6600ff, #ff00ff);
+            background-size: 400% 400%;
+            animation: rgb-animation 3s ease infinite;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .menu-link:hover + .rgb-border,
+        .menu-link.active + .rgb-border {
+            opacity: 1;
+        }
+
+        @keyframes rgb-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Content Styles */
+        .content-container {
+            min-height: 500px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .content-panel {
+            background: linear-gradient(145deg, rgba(26, 77, 41, 0.9), rgba(15, 58, 26, 0.9));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(42, 110, 58, 0.3);
+            display: none;
+            animation: fadeIn 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-title {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Exam Schedule Styles */
+        .exam-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exam-item {
+            background: rgba(10, 38, 16, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid var(--accent-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .exam-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-left-color: var(--gold);
+        }
+
+        .exam-subject {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .exam-date {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Products Styles */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card {
+            background: rgba(10, 38, 16, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(15, 58, 26, 0.8);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Teachers Styles */
+        .teachers-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card {
+            background: rgba(10, 38, 16, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .teacher-list {
+            list-style: none;
+        }
+
+        .teacher-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(200, 230, 201, 0.1);
+        }
+
+        .teacher-item:last-child {
+            border-bottom: none;
+        }
+
+        /* School Environment Styles */
+        .environment-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .environment-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .school-image-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .school-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .school-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Comments Form */
+        .comments-form {
+            background: rgba(10, 38, 16, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(15, 58, 26, 0.8);
+            border: 1px solid rgba(42, 110, 58, 0.5);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--accent-green), var(--light-green));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(42, 110, 58, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(42, 110, 58, 0.4);
+            background: linear-gradient(to right, var(--light-green), var(--accent-green));
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(to top, rgba(10, 38, 16, 0.95), rgba(15, 58, 26, 0.85));
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--rgb-border);
+            padding: 30px 0 20px;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .aparat-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            background: rgba(10, 38, 16, 0.8);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .aparat-link:hover {
+            background: rgba(15, 58, 26, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: var(--gold);
+        }
+
+        .aparat-icon {
+            font-size: 1.5rem;
+        }
+
+        .designer-credit {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .designer-name {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Home Page Styles */
+        .home-content {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .home-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), #ffed4e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .home-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .home-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(15, 58, 26, 0.7);
+            border-radius: 15px;
+            padding: 25px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent-green);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .feature-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .menu {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .menu-link {
+                text-align: center;
+            }
+            
+            .school-name {
+                font-size: 1.3rem;
+            }
+            
+            .home-title {
+                font-size: 2rem;
+            }
+            
+            .home-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="https://static.cdn.asset.aparat.cloud/profile-photo/8735003-554009-m.jpg" alt="لوگو دبیرستان" class="school-logo">
+                <h1 class="school-name">دبیرستان استعدادهای درخشان محمد رسول الله (دستغیب 3)</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="nav-container">
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="#" class="menu-link active" data-panel="home">
+                        <i class="fas fa-home"></i> صفحه اصلی
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-panel="exams">
+                        <i class="fas fa-calendar-alt"></i> برنامه امتحانات
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-panel="products">
+                        <i class="fas fa-shopping-basket"></i> محصولات بوفه
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-panel="teachers">
+                        <i class="fas fa-chalkboard-teacher"></i> اسامی دبیران و کادر مدرسه
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link" data-panel="environment">
+                        <i class="fas fa-school"></i> فضای مدرسه و نظرات دانش آموزان
+                    </a>
+                    <div class="rgb-border"></div>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content-container">
+            <!-- Home Panel -->
+            <div class="content-panel active" id="home-panel">
+                <div class="home-content">
+                    <h1 class="home-title">به سایت دبیرستان استعدادهای درخشان محمد رسول الله خوش آمدید</h1>
+                    <p class="home-subtitle">این مرکز آموزشی با کادری مجرب و محیطی پویا، در راستای پرورش استعدادهای درخشان دانش آموزان تلاش می‌کند. از طریق منوی بالا می‌توانید به اطلاعات مختلف مدرسه دسترسی داشته باشید.</p>
+                    
+                    <div class="home-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="feature-title">کیفیت آموزشی</h3>
+                            <p class="feature-desc">با بهره‌گیری از دبیران مجرب و روش‌های نوین آموزشی</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">فضای پویا</h3>
+                            <p class="feature-desc">محیطی شاد و پرنشاط برای رشد همه‌جانبه دانش‌آموزان</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="feature-title">دستاوردها</h3>
+                            <p class="feature-desc">کسب رتبه‌های برتر در المپیادها و مسابقات علمی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exams Panel -->
+            <div class="content-panel" id="exams-panel">
+                <h2 class="panel-title">برنامه امتحانات</h2>
+                <div class="exam-list">
+                    <div class="exam-item">
+                        <h3 class="exam-subject">امتحان ریاضی</h3>
+                        <p class="exam-date">پنجشنبه 18 دی ماه 1404</p>
+                    </div>
+                    <div class="exam-item">
+                        <h3 class="exam-subject">امتحان فیزیک</h3>
+                        <p class="exam-date">یکشنبه 21 دی ماه 1404</p>
+                    </div>
+                    <div class="exam-item">
+                        <h3 class="exam-subject">امتحان عربی</h3>
+                        <p class="exam-date">سه شنبه 23 دی ماه 1404</p>
+                    </div>
+                    <div class="exam-item">
+                        <h3 class="exam-subject">امتحان جغرافیا</h3>
+                        <p class="exam-date">پنجشنبه 25 دی ماه 1404</p>
+                    </div>
+                    <div class="exam-item">
+                        <h3 class="exam-subject">امتحان فارسی</h3>
+                        <p class="exam-date">اطلاع رسانی توسط مدیر محترم</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Panel -->
+            <div class="content-panel" id="products-panel">
+                <h2 class="panel-title">محصولات بوفه</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="product-name">نودل</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h3 class="product-name">بستنی شکلاتی</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h3 class="product-name">بستنی طلیب</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h3 class="product-name">بستنی پریما</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="product-name">قهوه</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3 class="product-name">کیک میک</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-cookie"></i>
+                        </div>
+                        <h3 class="product-name">بسکوییت</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-lemon"></i>
+                        </div>
+                        <h3 class="product-name">لواشک</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="product-name">انرژی زا تی ان تی</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teachers Panel -->
+            <div class="content-panel" id="teachers-panel">
+                <h2 class="panel-title">اسامی دبیران و کادر مدرسه</h2>
+                <div class="teachers-categories">
+                    <div class="category-card">
+                        <h3 class="category-title">مدیریت و معاونین</h3>
+                        <ul class="teacher-list">
+                            <li class="teacher-item">مدیر: جناب خلیلی</li>
+                            <li class="teacher-item">معاون اجرایی: جناب حسینی</li>
+                            <li class="teacher-item">معاون پرورشی: جناب بیات</li>
+                            <li class="teacher-item">معاونین آموزشی: جناب خالقی و آقای سلکی</li>
+                            <li class="teacher-item">امور اداری: جناب فیاض</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <h3 class="category-title">دبیران ریاضی و علوم</h3>
+                        <ul class="teacher-list">
+                            <li class="teacher-item">دبیران ریاضی: استاد عسکری و استاد نامه گشا</li>
+                            <li class="teacher-item">دبیران فیزیک: استاد سلیمی و استاد پاک طینت</li>
+                            <li class="teacher-item">دبیران شیمی: استاد ابطحی و استاد خیر</li>
+                            <li class="teacher-item">دبیر زیست: دکتر زارعی</li>
+                            <li class="teacher-item">دبیر هندسه: استاد میرشکاری</li>
+                            <li class="teacher-item">دبیر آزمایشگاه: استاد یزدانی</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <h3 class="category-title">دبیران علوم انسانی و زبان</h3>
+                        <ul class="teacher-list">
+                            <li class="teacher-item">دبیران ادبیات: استاد مرادی و استاد محرابی</li>
+                            <li class="teacher-item">دبیران عربی: استاد نگین تاج و استاد موسوی زاده</li>
+                            <li class="teacher-item">دبیران دین و زندگی: استاد یزدانی و استاد صالحی</li>
+                            <li class="teacher-item">دبیر جغرافیا: استاد مرادی پور</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <h3 class="category-title">سایر دبیران و کادر</h3>
+                        <ul class="teacher-list">
+                            <li class="teacher-item">دبیران زبان: استاد سلکی و استاد احمدی و استاد شجاعی</li>
+                            <li class="teacher-item">دبیر دفاعی: استاد عزیزی</li>
+                            <li class="teacher-item">دبیر رسانه: استاد خالقی</li>
+                            <li class="teacher-item">مربی ورزش: استاد حکمت</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environment Panel -->
+            <div class="content-panel" id="environment-panel">
+                <h2 class="panel-title">فضای مدرسه و نظرات دانش آموزان</h2>
+                <div class="environment-content">
+                    <div class="school-image-container">
+                        <img src="https://static.neshanmap.ir/places/images/183/1582989_6488378--%D8%AF%D8%A8%DB%8C%D8%B1%D8%B3%D8%AA%D8%A7%D9%86-%D8%A7%D8%B3%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%D9%87%D8%A7%DB%8C-%D8%AF%D8%B1%D8%AE%D8%B4%D8%A7%D9%86-%D9%85%D8%AD%D9%85%D8%AF-%D8%B1%D8%B3%D9%88%D9%84-%D8%A7%D9%84%D9%84%D9%87.jpeg" alt="تصویر دبیرستان" class="school-image">
+                    </div>
+                    
+                    <div class="comments-form">
+                        <h3 style="margin-bottom: 20px; color: var(--gold);">نظرات دانش آموزان</h3>
+                        <form id="comment-form">
+                            <div class="form-group">
+                                <label class="form-label" for="student-name">نام و نام خانوادگی:</label>
+                                <input type="text" id="student-name" class="form-input" placeholder="نام خود را وارد کنید" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="student-comment">نظر شما درباره مدرسه:</label>
+                                <textarea id="student-comment" class="form-textarea" placeholder="نظر خود را بنویسید..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">ارسال نظر</button>
+                        </form>
+                        
+                        <div id="comments-list" style="margin-top: 30px;">
+                            <h4 style="color: var(--text-gray); margin-bottom: 15px;">نظرات اخیر:</h4>
+                            <!-- نظرات از localStorage لود می‌شوند -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="https://www.aparat.com/MRasoolAllahSch" target="_blank" class="aparat-link">
+                <i class="fas fa-video aparat-icon"></i>
+                <span>کانال آپارات دبیرستان</span>
+            </a>
+            
+            <p class="designer-credit">طراحی سایت: <span class="designer-name">طاها رنجبر</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Panel switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu-link');
+            const panels = document.querySelectorAll('.content-panel');
+            
+            // بارگذاری نظرات ذخیره شده
+            loadCommentsFromStorage();
+            
+            // Show home panel by default
+            showPanel('home');
+            
+            // Add click event to menu links
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    menuLinks.forEach(item => item.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Get panel id from data attribute
+                    const panelId = this.getAttribute('data-panel');
+                    
+                    // Show the selected panel
+                    showPanel(panelId);
+                });
+            });
+            
+            // Function to show selected panel
+            function showPanel(panelId) {
+                // Hide all panels
+                panels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+                
+                // Show the selected panel
+                const activePanel = document.getElementById(`${panelId}-panel`);
+                if (activePanel) {
+                    activePanel.classList.add('active');
+                }
+            }
+            
+            // Handle comment form submission
+            const commentForm = document.getElementById('comment-form');
+            
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('student-name').value;
+                const comment = document.getElementById('student-comment').value;
+                
+                if (name && comment) {
+                    // ایجاد تاریخ
+                    const now = new Date();
+                    const dateString = now.toLocaleDateString('fa-IR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    
+                    // ذخیره در LocalStorage
+                    saveCommentToStorage(name, comment, dateString);
+                    
+                    // نمایش در صفحه
+                    addCommentToDOM(name, comment, dateString);
+                    
+                    // ریست فرم
+                    commentForm.reset();
+                    
+                    // نمایش پیام موفقیت
+                    showSuccessMessage();
+                }
+            });
+            
+            // Add hover effects to all cards
+            const cards = document.querySelectorAll('.exam-item, .product-card, .category-card, .feature-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // سیستم ذخیره و بارگذاری نظرات
+            function saveCommentToStorage(name, text, date) {
+                // دریافت نظرات قبلی
+                const comments = JSON.parse(localStorage.getItem('school_comments') || '[]');
+                
+                // اضافه کردن نظر جدید
+                comments.unshift({
+                    name: name,
+                    text: text,
+                    date: date
+                });
+                
+                // ذخیره حداکثر 50 نظر
+                if (comments.length > 50) {
+                    comments.splice(50);
+                }
+                
+                // ذخیره در LocalStorage
+                localStorage.setItem('school_comments', JSON.stringify(comments));
+            }
+            
+            function loadCommentsFromStorage() {
+                const commentsList = document.getElementById('comments-list');
+                if (!commentsList) return;
+                
+                // دریافت نظرات از LocalStorage
+                const savedComments = JSON.parse(localStorage.getItem('school_comments') || '[]');
+                
+                // نمایش نظرات
+                savedComments.forEach(comment => {
+                    addCommentToDOM(comment.name, comment.text, comment.date);
+                });
+            }
+            
+            function addCommentToDOM(name, text, date) {
+                const commentsList = document.getElementById('comments-list');
+                if (!commentsList) return;
+                
+                // ایجاد المان نظر
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'comment-item';
+                commentDiv.style.background = 'rgba(10, 38, 16, 0.5)';
+                commentDiv.style.padding = '15px';
+                commentDiv.style.borderRadius = '10px';
+                commentDiv.style.marginBottom = '15px';
+                commentDiv.style.borderRight = '3px solid var(--accent-green)';
+                
+                const commentName = document.createElement('div');
+                commentName.style.color = 'var(--gold)';
+                commentName.style.fontWeight = '600';
+                commentName.style.marginBottom = '5px';
+                commentName.textContent = name;
+                
+                const commentText = document.createElement('div');
+                commentText.style.color = 'var(--text-light)';
+                commentText.style.marginBottom = '8px';
+                commentText.textContent = text;
+                
+                const commentDate = document.createElement('div');
+                commentDate.style.color = 'var(--text-gray)';
+                commentDate.style.fontSize = '0.85rem';
+                commentDate.textContent = date;
+                
+                commentDiv.appendChild(commentName);
+                commentDiv.appendChild(commentText);
+                commentDiv.appendChild(commentDate);
+                
+                // اضافه کردن نظر به ابتدای لیست (بعد از تیتر)
+                const title = commentsList.querySelector('h4');
+                if (title && title.nextSibling) {
+                    commentsList.insertBefore(commentDiv, title.nextSibling);
+                } else {
+                    commentsList.appendChild(commentDiv);
+                }
+            }
+            
+            function showSuccessMessage() {
+                // ایجاد یک پیام موقت
+                const message = document.createElement('div');
+                message.textContent = 'نظر شما با موفقیت ثبت شد. سپاس از مشارکت شما!';
+                message.style.position = 'fixed';
+                message.style.top = '20px';
+                message.style.left = '50%';
+                message.style.transform = 'translateX(-50%)';
+                message.style.backgroundColor = 'var(--accent-green)';
+                message.style.color = 'white';
+                message.style.padding = '15px 25px';
+                message.style.borderRadius = '10px';
+                message.style.zIndex = '1000';
+                message.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+                message.style.fontWeight = '600';
+                
+                document.body.appendChild(message);
+                
+                // حذف پیام بعد از 3 ثانیه
+                setTimeout(() => {
+                    message.style.opacity = '0';
+                    message.style.transition = 'opacity 0.5s';
+                    setTimeout(() => {
+                        if (message.parentNode) {
+                            message.parentNode.removeChild(message);
+                        }
+                    }, 500);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
